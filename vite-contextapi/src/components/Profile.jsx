@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Usercontext from '../context/UserContext'
 
 function Profile() {
+  const {user}=useContext(Usercontext)
   return (
-    <div>profile</div>
+    <div>profile:{user.username}</div>
   )
 }
 

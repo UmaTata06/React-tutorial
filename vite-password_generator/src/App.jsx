@@ -33,6 +33,12 @@ function App() {
   }, [length,isSymbolAllowed,isNumberAllowed])
   
 const valueref=useRef(null)
+const prev=useRef('');
+useEffect(()=>{
+  prev.current=valueref.current.value
+  
+},[length,isSymbolAllowed,isNumberAllowed])
+
   const copyValue=()=>{
     window.navigator.clipboard.writeText(password)
     console.log(valueref);
@@ -89,6 +95,9 @@ const valueref=useRef(null)
         <label>Symbol allowed</label>
         </div>
 
+<h4>Random number:</h4>
+<h5>{typeof prev.current!=='undefined' &&
+  prev.current}</h5>
       </div>
 
 

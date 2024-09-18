@@ -1,7 +1,11 @@
 import React from 'react'
+import { useMemo } from 'react';
+import { useState } from 'react'
 
 // const Card = (props) => {
-const Card = ({ name ='Uma',Technology='React'}) => {
+const Card = useMemo(({ name ='Uma',Technology='React'}) => {
+    console.log("rendered");
+    
     return (
         <>
             <div className='bg-green-500 text-center p-3 text-3xl rounded-md'><h5>
@@ -9,7 +13,8 @@ const Card = ({ name ='Uma',Technology='React'}) => {
                 
                     Name :{name}
                 
-            </h5>
+            </h5>       
+            
                 <h3>
                     Technology:{Technology}
 
@@ -17,6 +22,6 @@ const Card = ({ name ='Uma',Technology='React'}) => {
 
         </>
     )
-}
+},[])
 
-export default Card
+export default Card;
